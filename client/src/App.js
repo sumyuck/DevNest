@@ -42,22 +42,24 @@ int main() {
   return (
     <div style={{ padding: "20px" }}>
       <h1>Online IDE</h1>
+
       <label>Select Language: </label>
       <select value={language} onChange={handleLanguageChange}>
         <option value="cpp">C++</option>
         <option value="c">C</option>
         <option value="python">Python</option>
       </select>
+
       <div style={{ display: "flex", gap: "20px", marginTop: "10px" }}>
         <div style={{ width: "70%", minHeight: "500px", display: "flex", flexDirection: "column" }}>
           <Editor
             height="500px"
             width="100%"
-            defaultLanguage={language}
+            language={language}
             value={code}
             onChange={(value) => setCode(value)}
             options={{
-              automaticLayout: false,
+              automaticLayout: true,
             }}
           />
           <button
@@ -67,6 +69,7 @@ int main() {
             Run Code
           </button>
         </div>
+
         <div style={{ width: "30%", backgroundColor: "#f5f5f5", padding: "10px" }}>
           <h3>Output</h3>
           <pre>{output}</pre>
